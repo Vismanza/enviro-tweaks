@@ -3,8 +3,9 @@ use <threads.scad>
 $fn=25;
 
 //Inputs
-height=70;
-layer_count=7;
+top_text="Bedroom";
+height=85;
+layer_count=8;
 internal_radius=30;
 rim_taper=5;
 wall_thickness=2;
@@ -12,17 +13,22 @@ connector_height=2;
 facets=18;
 interior_angle = 360 / facets;
 
-/*
 //Base
 translate([(3*internal_radius),0,0])
 difference(){
 AugerThread((2*internal_radius)-(2*wall_thickness), (2*internal_radius)-(4*wall_thickness), height / layer_count, 7, tooth_angle=30, tolerance=0.4, tip_height=0, tip_min_fract=0);
     translate([0,0,-1])
-        cube([2*wall_thickness,8*wall_thickness,4*wall_thickness], center = true);
+        cube([1.5*wall_thickness,8*wall_thickness,10*wall_thickness], center = true);
 
-}*/
+}
 //Body
+translate([0,0,height+(height/layer_count)+wall_thickness])
+rotate(a=[0,180,0]) {
+stevensonscreen();
+}
 
+
+module stevensonscreen(){
 //Negative thread
 AugerHole((2*internal_radius)-(2*wall_thickness), (2*internal_radius)-(4*wall_thickness), height / layer_count, 7, position=[0,0,0], rotation=[0,0,0], tooth_angle=30, tolerance=0.4)
 cylinder(h=height / layer_count,r1=internal_radius,r2=internal_radius,$fn=facets);
@@ -56,8 +62,9 @@ translate([0,0,(height/layer_count)+height])
     //roof text
         translate([0,0,-0.5])
     linear_extrude(wall_thickness+1)
-    text("Bedroom",8,halign = "center", valign = "center");
+    text(top_text,8,halign = "center", valign = "center");
     }
+}
 //modules
 
 module ring_cut(){
