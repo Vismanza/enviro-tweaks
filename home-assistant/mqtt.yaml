@@ -1,0 +1,52 @@
+sensor:
+  - name: "Main Bedroom Temperature"
+    unique_id: main_bed_temp
+    state_topic: "enviro/bedroom-sensor"
+    payload_available: "online"
+    payload_not_available: "offline"
+    value_template: "{{ value_json.temperature }}"
+    unit_of_measurement: "°C"
+    state_class: measurement
+    device_class: temperature
+  - name: "Main Bedroom Pressure"
+    unique_id: main_bed_pressure
+    state_topic: "enviro/bedroom-sensor"
+    payload_available: "online"
+    payload_not_available: "offline"
+    value_template: "{{ value_json.pressure }}"
+    unit_of_measurement: "hPa"
+    state_class: measurement
+    device_class: pressure
+  - name: "Main Bedroom Colour Temperature"
+    unique_id: main_bed_colour_temp
+    state_topic: "enviro/bedroom-sensor"
+    payload_available: "online"
+    payload_not_available: "offline"
+    value_template: "{{ value_json.color_temperature }}"
+    unit_of_measurement: "K"
+    state_class: measurement
+  - name: "Main Bedroom Humidity"
+    unique_id: main_bed_hunidity
+    state_topic: "enviro/bedroom-sensor"
+    payload_available: "online"
+    payload_not_available: "offline"
+    value_template: "{{ value_json.humidity }}"
+    unit_of_measurement: "%"
+    state_class: measurement
+    device_class: humidity
+  - name: "Main Bedroom Luminance"
+    unique_id: main_bed_luminance
+    state_topic: "enviro/bedroom-sensor"
+    payload_available: "online"
+    payload_not_available: "offline"
+    value_template: "{{ value_json.luminance }}"
+    unit_of_measurement: "lx"
+    state_class: measurement
+    device_class: illuminance
+  - name: "Main Bedroom Last Reading"
+    unique_id: main_bed_timestamp
+    state_topic: "enviro/bedroom-sensor"
+    payload_available: "online"
+    payload_not_available: "offline"
+    value_template: "{{ value_json.timestamp|as_datetime|as_local }}"
+    device_class: timestamp
