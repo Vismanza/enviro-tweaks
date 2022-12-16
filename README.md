@@ -1,5 +1,5 @@
 # enviro-tweaks
-My collections of tweaks for getting enviro working for me. These boards are great and al real pleasure to learn with.
+My collections of tweaks for getting [enviro]([url](https://github.com/pimoroni/enviro)) working for me. These boards are great and al real pleasure to learn with.
 
 Currently I have changed the config from MQTT to Influx DB directly. Previously the data was being published to MQTT, picked up by Node Red and then pushed in to Influx. 
 
